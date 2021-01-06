@@ -35,14 +35,14 @@ namespace InternshipsBookApp.Controllers
             }
 
             var fileName = Guid.NewGuid() + Path.GetExtension(upload.FileName).ToLower();
-            var path = Path.Combine(_env.WebRootPath, editor-images/img", fileName);
+            var path = Path.Combine(_env.WebRootPath, upload/img", fileName);
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 upload.CopyTo(stream);
             }
 
-            var url = $"{"/editor-images/img/"}{fileName}";
+            var url = $"{"/upload/img/"}{fileName}";
 
             return Json(new { uploaded = true, url });
         }
