@@ -170,7 +170,7 @@ namespace InternshipsBookApp.Controllers
                 // Save all pages as pdf to folder.
                 foreach (var page in book.Pages)
                 {
-                    page.PageContent = page.PageContent.Replace("/upload-images/img", _env.WebRootPath + "/upload-images/img");
+                    page.PageContent = page.PageContent.Replace("/editor-images/img", _env.WebRootPath + "/editor-images/img");
                     PdfDocument PDF = Renderer.RenderHtmlAsPdf(page.PageContent);
                     var OutputPath = path + "\\" + page.Id + ".pdf";
                     PDF.SaveAs(OutputPath);
