@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!--Jumbotron-->
+<div class="jumbotron">
+    <h1 class="display-3" style="text-align:center">Staj Defteri Uygulaması</h1>
+    <p class="lead" style="text-align:center">Artık online bir platformda staj defterinizi kolaylıkla hazırlayabilir ve saklayabilirsiniz. Hem de ücretsiz !</p>
+    <hr class="my-4">
+    <p style="text-align:center">Uygulamayı kullanmak için hemen üye ol ve başla</p>
+</div>
+
+<!--Main Content-->
+<div class="container">
+    <!--Login and Register Forms-->
+    <div class="row">
+        <!--Login Form-->
+        <div class="col-md-6">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">Giriş Yap</div>
+                <div class="card-body">
+                    <form asp-action="Login" asp-controller="Auth" method="post">
+                        <div class="form-group">
+                            <label>Kullanıcı adı</label>
+                            <input type="text" class="form-control" name="username" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Parola</label>
+                            <input type="password" class="form-control" name="password" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-info">Giriş Yap</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--Register Form-->
+        <div class="col-md-6">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">Kayıt ol</div>
+                <div class="card-body">
+                    <form asp-action="Register" asp-controller="Auth" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Kullanıcı adı</label>
+                                    <input type="text" class="form-control" name="username" id="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Parola</label>
+                                    <input type="password" class="form-control" name="password" id="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Mail</label>
+                                    <input type="text" class="form-control" name="mail" id="mail" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Ad</label>
+                                    <input type="text" class="form-control" name="name" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Soyad</label>
+                                    <input type="text" class="form-control" name="surname" id="surname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info">Kayıt ol</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

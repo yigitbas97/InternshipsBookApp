@@ -1,0 +1,31 @@
+﻿@model InternshipsBookApp.Models.BookUpdateViewModel;
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!--Update New Book-->
+    <div class="container mt-3">
+        <h2>Defteri Güncelle</h2>
+        <br />
+        <!--Update New Book Form-->
+        <form asp-action="Update" asp-controller="Book" method="post">
+            <div class="form-group">
+                <label asp-for="@Model.InternshipPlace"></label>
+                <input type="text" class="form-control" asp-for="@Model.InternshipPlace" />
+                <span asp-validation-for="@Model.InternshipPlace"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Department"></label>
+                <input type="text" class="form-control" asp-for="@Model.Department" />
+                <span asp-validation-for="@Model.Department"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.DeliveryDate"></label>
+                <input type="date" class="form-control" asp-for="@Model.DeliveryDate" />
+                <span asp-validation-for="@Model.DeliveryDate"></span>
+            </div>
+            <input type="hidden" asp-for="@Model.BookId" />
+            <button type="submit" class="btn btn-success btn-lg btn-block">Güncelle</button>
+        </form>
+    </div>

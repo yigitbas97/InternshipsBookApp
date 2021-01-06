@@ -1,0 +1,36 @@
+﻿@model InternshipsBookApp.Models.PageExamineViewModel;
+@{
+    ViewData["Title"] = "Examine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Text color for information-->
+<style>
+    h6 {
+        color: black;
+    }
+</style>
+<!--Selected Page Detail-->
+<div class="container mt-5 mb-5" style="border-color:black; border-style: dotted; border-width: 2px; background-color:white;">
+    <div class="row">
+        <!--Book Information-->
+        <div class="col-md-6" style="padding: 15px;">
+            <h6>Staj Yeri      : @Model.Book.InternshipPlace</h6>
+            <h6>Departman      : @Model.Book.Department</h6>
+            <h6>Teslim Tarihi  : @Model.Book.DeliveryDate.ToShortDateString()</h6>
+        </div>
+        <!--Page Information-->
+        <div class="col-md-6" style="padding: 15px;">
+            <h6>Sayfa Konusu   : @Model.Subject</h6>
+            <h6>Sayfa Numarası : @Model.Number</h6>
+        </div>
+    </div>
+
+    <hr />
+    <!--Page Content-->
+    <div class="row" style="color:black; padding:10px;">
+        <div class="col-md-12">
+            @Html.Raw(Model.PageContent)
+        </div>
+    </div>
+</div>

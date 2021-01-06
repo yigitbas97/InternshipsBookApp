@@ -1,0 +1,58 @@
+﻿@model InternshipsBookApp.Models.BookViewModel;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--Books Container-->
+<div class="container mt-3">
+    <h2>Defterlerim</h2>
+    <br />
+    <a class="btn btn-success" asp-action="Add" asp-controller="Book">Defter Ekle</a>
+    <hr />
+
+    <!--Controlling Book's Count-->
+    @if (Model.Books.Count == 0)
+    {
+        <div class="alert alert-danger " role="alert">Sistemde kayıtlı defteriniz bulunmamaktadır.</div>
+    }
+
+    <!--Displaying Internships Books-->
+    <div class="row">
+        @foreach (var book in Model.Books)
+        {
+            <div class="col-md-6">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-header">
+                        @{
+                            string tempInternshipPlace = "";
+
+                            if (book.InternshipPlace.Length > 61)
+                            {
+                                tempInternshipPlace = book.InternshipPlace.Substring(0, 61);
+                            }
+                            else
+                            {
+                                tempInternshipPlace = book.InternshipPlace;
+                            }
+                        }
+                        @tempInternshipPlace
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Okul Adı :  @book.Department</p>
+                        <p class="card-text">Teslim Tarihi : @book.DeliveryDate.ToShortDateString()</p>
+                        <hr />
+                        <a class="btn btn-info mr-2 mb-2" asp-action="Index" asp-controller="Page" asp-route-bookId="@book.Id">Sayfalar</a>
+                        <a class="btn btn-primary mr-2 mb-2" asp-action="Update" asp-controller="Book" asp-route-bookId="@book.Id">Defteri Güncelle</a>
+                        <a class="btn btn-danger mr-2 mb-2" asp-action="Delete" asp-controller="Book" asp-route-bookId="@book.Id">Defteri Sil</a>
+                        <a class="btn btn-secondary mr-2 mb-2" asp-action="CreatePdf" asp-controller="Book" asp-route-bookId="@book.Id">Pdf Oluştur</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+

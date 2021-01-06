@@ -1,0 +1,52 @@
+﻿@model InternshipsBookApp.Models.PageViewModel;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!--Page Container-->
+    <div class="container mt-3">
+        <h2>Sayfalar</h2>
+        <br />
+        <a class="btn btn-success" asp-action="Add" asp-controller="Page" asp-route-bookId="@Model.BookId">Sayfa Ekle</a>
+        <hr />
+
+        <!--Controlling Page's Count-->
+        @if (Model.Pages.Count == 0)
+        {
+            <div class="alert alert-danger " role="alert">Bu deftere ait sayfa bulunmamaktadır.</div>
+        }
+
+        <!--Displaying Selected Book's Pages-->
+        <div class="row">
+            @foreach (var bookPage in Model.Pages)
+            {
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-header">
+                            @{
+                                string tempSubject = "";
+
+                                if (bookPage.Subject.Length > 55)
+                                {
+                                    tempSubject = bookPage.Subject.Substring(0, 55);
+                                }
+                                else
+                                {
+                                    tempSubject = bookPage.Subject;
+                                }
+                            }
+
+                            @bookPage.Number) @tempSubject
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-info mr-2 mb-2" asp-action="Examine" asp-controller="Page" asp-route-pageId="@bookPage.Id">İncele</a>
+                            <a class="btn btn-primary mr-2 mb-2" asp-action="Update" asp-controller="Page" asp-route-pageId="@bookPage.Id">Güncelle</a>
+                            <a class="btn btn-danger mr-2 mb-2" asp-action="Delete" asp-controller="Page" asp-route-pageId="@bookPage.Id">Sayfa Sil</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
