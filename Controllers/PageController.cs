@@ -35,7 +35,7 @@ namespace InternshipsBookApp.Controllers
             }
 
             var fileName = Guid.NewGuid() + Path.GetExtension(upload.FileName).ToLower();
-            var path = Path.Combine(_env.WebRootPath, upload/img", fileName);
+            var path = Path.Combine(_env.WebRootPath, "upload/img", fileName);
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
