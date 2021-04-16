@@ -26,6 +26,8 @@ Kullanılan Teknolojiler ve Yöntemler
 
 Uygulama Özellikleri
 
+•	Giriş Yap ve Kaydol İşlemleri
+
 •	Staj Defteri -> Ekle, Oku, Sil, Güncelle, Pdf Kaydet
 
 •	Sayfa -> Ekle, Oku, Sil ,Güncelle , Deftere Kaydet
