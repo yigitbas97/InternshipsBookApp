@@ -23,7 +23,7 @@ namespace InternshipsBookApp.Controllers
         public BookController(IBookDal bookDal, IUserDal userDal, IHostingEnvironment env)
         {
             _bookDal = bookDal;
-            _userDal = userDal;
+            _userDal = userDal; 
             _env = env;
         }
 
@@ -200,6 +200,7 @@ namespace InternshipsBookApp.Controllers
             return RedirectToAction("Index", "Book");
         }
 
+        //Create Folder For Pdf
         public void CreateFolder(string path)
         {
             if (!Directory.Exists(path))
@@ -208,6 +209,7 @@ namespace InternshipsBookApp.Controllers
             }
         }
 
+        //Delete Folder For Pdf
         public void DeleteFolder(string path)
         {
             if (Directory.Exists(path))
