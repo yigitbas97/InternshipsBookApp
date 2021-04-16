@@ -13,7 +13,7 @@ Kullanılan Teknolojiler ve Yöntemler
 
 •	LINQ -> Veri Sorgulama
 
-•	Html,Css,Javascript,Bootstrap -> Görsel Tasarım 
+•	Html,Css,Javascript,Bootstrap, Bootswatch -> Görsel Tasarım 
 
 •	CkEditor4 -> Editor, resim ekleme, kod eklentisi ekleme
 
